@@ -9,12 +9,9 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
       type: this.configService.get('db.type'),
-      host: this.configService.get('db.host'),
-      port: this.configService.get('db.port'),
-      schema: 'public',
-      username: this.configService.get('db.username'),
-      password: this.configService.get('db.password'),
-      database: this.configService.get('db.name'),
+      url: this.configService.get('db.url'), // Use the connection string directly
+      useNewUrlParser: true, // Required for MongoDB
+      useUnifiedTopology: true, // Required for MongoDB
       synchronize: false,
       dropSchema: false,
       logging: this.configService.get('app.nodeEnv') !== 'production',

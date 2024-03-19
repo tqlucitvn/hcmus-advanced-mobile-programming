@@ -52,6 +52,7 @@
     "libphonenumber-js": "^1.10.48",
     "lodash": "^4.17.21",
     "luxon": "^3.4.3",
+    "mongodb": "^6.5.0",
     "nestjs-pino": "^3.5.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",

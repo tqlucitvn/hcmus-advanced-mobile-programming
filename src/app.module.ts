@@ -17,8 +17,6 @@ import { HttRequestContextMiddleware } from 'src/shared/http-request-context/htt
 import { HttRequestContextModule } from 'src/shared/http-request-context/http-request-context.module';
 import { RequestIdHeaderMiddleware } from 'src/shared/middlewares/request-id-header.middleware';
 import { DataSource } from 'typeorm';
-import { NotificationChannelModule } from 'src/modules/notification-channel/notification-channel.module';
-import { PostModule } from 'src/modules/post/post.module';
 
 @Module({
   imports: [
@@ -44,8 +42,6 @@ import { PostModule } from 'src/modules/post/post.module';
     LoggerModule.forRootAsync(loggerConfig),
     AuthModule,
     UserModule,
-    NotificationChannelModule,
-    PostModule,
   ],
 })
 export class AppModule implements NestModule {
