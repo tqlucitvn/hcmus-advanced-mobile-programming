@@ -2,14 +2,14 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ForbiddenException, Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
-import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { UserResDto } from 'src/modules/user/dto/user-res.dto';
 import { UserService } from 'src/modules/user/user.service';
 import { HttpRequestContextService } from 'src/shared/http-request-context/http-request-context.service';
+import { User } from 'src/database/entities/user.entity';
 
 const logger = new Logger();
 
-type JwtPayload = Pick<UserEntity, 'id' | 'username' | 'roles'> & { iat: number; exp: number };
+type JwtPayload = Pick<User, 'id' | 'username' | 'roles'> & { iat: number; exp: number };
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

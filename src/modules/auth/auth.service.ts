@@ -58,11 +58,10 @@ export class AuthService {
 
   async register(userDto: CreateCredentialDto): Promise<void> {
     const { username, password, roles } = userDto;
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(password, salt);
-    await this.usersService.create({
+
+    await this.usersService.add({
       username,
-      password: hashedPassword,
+      password,
       roles: roles,
     });
 
